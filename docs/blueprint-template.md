@@ -46,11 +46,12 @@
 ---
 
 ## 4. Incident Response (Group)
-- [SCENARIO_NAME]: (e.g., rag_slow)
-- [SYMPTOMS_OBSERVED]: 
-- [ROOT_CAUSE_PROVED_BY]: (List specific Trace ID or Log Line)
-- [FIX_ACTION]: 
-- [PREVENTIVE_MEASURE]: 
+
+- [SCENARIO_NAME]&#58; tool_fail
+- [SYMPTOMS_OBSERVED]&#58; All chatbot requests returned HTTP 500 almost immediately during load testing. The load test showed every request failing while the app stayed online, and /metrics showed errors accumulating under RuntimeError.
+- [ROOT_CAUSE_PROVED_BY]&#58; Log evidence: `event=request_failed`, `error_type=RuntimeError`, `detail="Vector store timeout"` with correlation IDs such as `req-db7f0d9b`, `req-dec69378`, and `req-57337486`. Code evidence: in `app/mock_rag.py`, when `STATE["tool_fail"]` is enabled, `retrieve()` raises `RuntimeError("Vector store timeout")`, which propagates to `/chat` and is returned as HTTP 500.
+- [FIX_ACTION]&#58; Disabled the injected incident using `python scripts/inject_incident.py --scenario tool_fail --disable`, then re-ran load tests to confirm the system returned to normal behavior. We also fixed the tracing fallback in `app/tracing.py` so requests no longer failed with `_DummyContext` span errors before incident analysis.
+- [PREVENTIVE_MEASURE]&#58; Add an alert for abnormal error-rate spikes grouped by `error_type`, keep a runbook step to check whether `tool_fail` or other incident toggles are enabled, and add a fallback retrieval path or graceful degradation message instead of returning HTTP 500 for all requests.
 
 ---
 
