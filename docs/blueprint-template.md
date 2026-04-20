@@ -3,6 +3,7 @@
 > **Instruction**: Fill in all sections below. This report is designed to be parsed by an automated grading assistant. Ensure all tags (e.g., `[GROUP_NAME]`) are preserved.
 
 ## 1. Team Metadata
+
 - GROUP_NAME: C401-F1
 - REPO_URL: https://github.com/solar11781/Lab13-Observability
 - MEMBERS:
@@ -16,6 +17,7 @@
 ---
 
 ## 2. Group Performance (Auto-Verified)
+
 - VALIDATE_LOGS_FINAL_SCORE: 100/100
 - TOTAL_TRACES_COUNT: 200
 - PII_LEAKS_FOUND: 0
@@ -25,22 +27,25 @@
 ## 3. Technical Evidence (Group)
 
 ### 3.1 Logging & Tracing
+
 - EVIDENCE_CORRELATION_ID_SCREENSHOT: ![CORRELATION_ID](/screenshots/correlation_id.png)
 - EVIDENCE_PII_REDACTION_SCREENSHOT: ![PII_REDACTION](/screenshots/pii_redaction.png)
-- EVIDENCE_TRACE_WATERFALL_SCREENSHOT: [Path to image]
-- TRACE_WATERFALL_EXPLANATION: (Briefly explain one interesting span in your trace)
+- EVIDENCE_TRACE_WATERFALL_SCREENSHOT: ![EVIDENCE_TRACE_WATERFALL_SCREENSHOT](/screenshots/evidence_trace_waterfall.png)
+- TRACE_WATERFALL_EXPLANATION: Trace này thể hiện quá trình xử lý một request trong pipeline của agent, trong đó span chính agent_reasoning_chain đại diện cho toàn bộ luồng xử lý và span con knowledge_retrieval thực hiện bước truy xuất tài liệu. Metadata cho thấy doc_count = 1, nghĩa là đã truy xuất được một tài liệu, và độ trễ gần như bằng 0 cho thấy bước này không phải là nút thắt hiệu năng. Cấu trúc này giúp quan sát rõ các thành phần trong hệ thống và hỗ trợ việc debug cũng như phân tích hiệu năng.
 
 ### 3.2 Dashboard & SLOs
+
 - [DASHBOARD_6_PANELS_SCREENSHOT]: [Path to image]
 - [SLO_TABLE]:
-| SLI | Target | Window | Current Value |
-|---|---:|---|---:|
-| Latency P95 | < 2500ms | 28d |  |
-| Error Rate | < 2% | 28d | |
-| Cost Budget | < $3.0/day | 28d | |
-| Average Quality Score | > 0.85 | 28d | |
+  | SLI | Target | Window | Current Value |
+  |---|---:|---|---:|
+  | Latency P95 | < 2500ms | 28d | |
+  | Error Rate | < 2% | 28d | |
+  | Cost Budget | < $3.0/day | 28d | |
+  | Average Quality Score | > 0.85 | 28d | |
 
 ### 3.3 Alerts & Runbook
+
 - ALERT_RULES_SCREENSHOT: ![ALERT_RULES](/screenshots/alert_rules.png)
 - SAMPLE_RUNBOOK_LINK: https://github.com/solar11781/Lab13-Observability/blob/main/docs/alerts.md
 
@@ -59,18 +64,22 @@
 ## 5. Individual Contributions & Evidence
 
 ### Lê Duy Anh
+
 **TASKS_COMPLETED:**
+
 - Update PII in the pii.py file and modify the logging code in logging_config.py
-**EVIDENCE_LINK:**
+  **EVIDENCE_LINK:**
 - https://github.com/solar11781/Lab13-Observability/commit/ccb27c7be72e2b7569d84e1ba676452c0e258d36
 - https://github.com/solar11781/Lab13-Observability/commit/6b1fe1d8ac08fc5a76cec3fecb219a16c526fca7
 - https://github.com/solar11781/Lab13-Observability/commit/5e945280fd0a1783a906a6dd604d6c994abddcd0
 - https://github.com/solar11781/Lab13-Observability/commit/ee4991f97fbed14bffab61f033bf98cc257381e9
 
 ### Trương Minh Sơn
+
 **TASKS_COMPLETED:**
-- Implemented a robust observability pipeline featuring Langfuse tracing, automated PII scrubbing for logs and traces, and a comprehensive banking-specific test suite to monitor AI agent performance and security.
-**EVIDENCE_LINK:**
+
+- Implemented a robust observability pipeline featuring Langfuse tracing, automated PII scrubbing for logs and traces, and a comprehensive banking-specific test suite to monitor AI agent performance and security, Successfully implement waterfall traces
+  **EVIDENCE_LINK:**
 - Correlation ID Tracking: [https://github.com/solar11781/Lab13-Observability/blob/main/app/middleware.py](https://github.com/solar11781/Lab13-Observability/blob/main/app/middleware.py)
 - Langfuse Integration: [https://github.com/solar11781/Lab13-Observability/blob/main/app/tracing.py](https://github.com/solar11781/Lab13-Observability/blob/main/app/tracing.py)
 - Structured Logging and PII Scrubbing: [https://github.com/solar11781/Lab13-Observability/blob/main/app/logging_config.py](https://github.com/solar11781/Lab13-Observability/blob/main/app/logging_config.py)
@@ -79,11 +88,14 @@
 - Quality Evaluation Ground Truth: [https://github.com/solar11781/Lab13-Observability/blob/main/data/bank_expected_answers_200.jsonl](https://github.com/solar11781/Lab13-Observability/blob/main/data/bank_expected_answers_200.jsonl)
 
 ### Nguyễn Phạm Trà My
-- [TASKS_COMPLETED]: 
-- [EVIDENCE_LINK]: 
+
+- [TASKS_COMPLETED]:
+- [EVIDENCE_LINK]:
 
 ### Bùi Trần Gia Bảo
-**TASKS_COMPLETED:** 
+
+**TASKS_COMPLETED:**
+
 - Executed and validated all incident scenarios (rag_slow, tool_fail, cost_spike) using load_test.py and inject_incident.py, confirming expected system behaviors (latency increase, error spikes, cost increase).
 - Created domain-specific banking test datasets (200 queries + expected answers) to simulate realistic chatbot usage.
 - Developed adversarial test cases (PII injection, fraud attempts, prompt injection, malformed inputs) to evaluate system robustness and security.
@@ -91,6 +103,7 @@
 - Collected metrics and validated system performance using /metrics endpoint (latency, cost, tokens, error breakdown).
 
 **EVIDENCE_LINK:**
+
 - https://github.com/solar11781/Lab13-Observability/commit/d914cc085acb24c40f2216cf371ee11563002e43
 - https://github.com/solar11781/Lab13-Observability/commit/34b13221128d333f103a501b6baf5f03d4d70745
 - https://github.com/solar11781/Lab13-Observability/commit/36c400cb66ea12ca3643839d59597fea49e55e72
@@ -98,13 +111,16 @@
 - https://github.com/solar11781/Lab13-Observability/commit/e4a841aafa02c79b006afa1f358850b41c7d2193
 
 ### Mạc Phương Nga
-- [TASKS_COMPLETED]: 
-- [EVIDENCE_LINK]: 
+
+- [TASKS_COMPLETED]:
+- [EVIDENCE_LINK]:
 
 ### Lại Gia Khánh
-**TASKS_COMPLETED:** 
+
+**TASKS_COMPLETED:**
+
 - Hoàn thành team report (blueprint-template.md) và chuẩn bị mock-debug-qa.md.
-**EVIDENCE_LINK:**
+  **EVIDENCE_LINK:**
 - https://github.com/solar11781/Lab13-Observability/commit/aec716cf600567eee892c45fb47a312020554dab
 - https://github.com/solar11781/Lab13-Observability/commit/1c07379e260a0dc7b7011e2731790b999e9f06e3
 - https://github.com/solar11781/Lab13-Observability/commit/4f373854699921d7e22d23eebb002391611bf0c9
@@ -113,6 +129,7 @@
 ---
 
 ## 6. Bonus Items (Optional)
+
 - [BONUS_COST_OPTIMIZATION]: (Description + Evidence)
 - [BONUS_AUDIT_LOGS]: (Description + Evidence)
 - [BONUS_CUSTOM_METRIC]: (Description + Evidence)
