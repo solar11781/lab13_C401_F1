@@ -89,8 +89,32 @@
 
 ### Nguyễn Phạm Trà My
 
-- [TASKS_COMPLETED]:
+**TASKS_COMPLETED**
+
+- Xây dựng **SLO (Service Level Objectives)** trong `config/slo.yaml`:
+  - Xác định các SLI chính: latency_p95, error_rate, cost_budget, quality_score
+  - Thiết lập target phù hợp với hệ thống chatbot ngân hàng
+  - Điền current value dựa trên số liệu thực tế từ metrics và load test
+
+- Cấu hình **Alert Rules** trong `config/alert_rules.yaml`:
+  - Thiết lập các alert quan trọng:
+    - high_latency_p95
+    - high_error_rate
+    - cost_budget_spike
+    - quality_degradation
+  - Định nghĩa condition rõ ràng (threshold + duration)
+  - Gán severity (P1/P2) và runbook cho từng alert
+
+- Kiểm tra alert hoạt động bằng cách:
+  - Inject các scenario: rag_slow, tool_fail, cost_spike
+  - Quan sát metrics thay đổi và đảm bảo alert trigger đúng
+
+- Đảm bảo SLO và alert liên kết chặt chẽ:
+  - Alert được thiết kế trực tiếp dựa trên các SLI trong SLO
+  - Hệ thống có khả năng phát hiện và cảnh báo khi vi phạm SLO
 - [EVIDENCE_LINK]:
+- https://github.com/solar11781/lab13_C401_F1/blob/main/config/alert_rules.yaml
+- https://github.com/solar11781/lab13_C401_F1/blob/main/config/slo.yaml
 
 ### Bùi Trần Gia Bảo
 
