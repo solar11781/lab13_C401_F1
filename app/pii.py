@@ -23,7 +23,26 @@ PII_PATTERNS: dict[str, str] = {
     "date_of_birth": r"\b(?:0?[1-9]|[12][0-9]|3[01])[-/\.](?:0?[1-9]|1[012])[-/\.](?:19|20)\d\d\b", # dd/mm/yyyy hoặc dd-mm-yyyy
     
     # --- Địa chỉ (Nhận diện theo từ khóa) ---
-    "address_keyword_vn": r"(?i)\b(?:thành phố|tp\.?|quận|q\.?|huyện|h\.?|phường|p\.?|xã|thị xã|tx\.?|đường|ngõ|ngách|thôn|xóm|ấp|khu phố|kp\.?)\b"
+    "address_keyword_vn": r"(?i)\b(?:thành phố|tp\.?|quận|q\.?|huyện|h\.?|phường|p\.?|xã|thị xã|tx\.?|đường|ngõ|ngách|thôn|xóm|ấp|khu phố|kp\.?)\b",
+
+    "otp_code": r"\b\d{6}\b",                  # Mã OTP 6 số
+
+    # 1. Thẻ nội địa Napas (Luôn bắt đầu bằng 9704, độ dài 16 hoặc 19 số)
+    "napas_card": r"\b9704[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}(?:[- ]?\d{3})?\b",
+    
+    # 2. Thẻ Visa (Bắt đầu bằng 4, thường 16 số)
+    "visa_card": r"\b4\d{3}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b",
+    
+    # 3. Thẻ Mastercard (Bắt đầu từ 51-55, 16 số)
+    "mastercard": r"\b5[1-5]\d{2}[- ]?\d{4}[- ]?\d{4}[- ]?\d{4}\b",
+    
+    # 4. Số tài khoản ngân hàng VN (Thường từ 8 đến 15 số, không có chữ cái)
+    # Lưu ý: Bắt từ 8 số trở lên để tránh nhầm với mã OTP hay số tiền nhỏ
+    "bank_account": r"\b\d{8,15}\b",
+    
+    # 5. Mã giao dịch (Txn ID - Thường là chuỗi alphanumeric dài từ các app ngân hàng)
+    "transaction_id": r"\b[A-Z0-9]{12,24}\b"
+
 }
 
 
