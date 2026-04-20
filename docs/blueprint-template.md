@@ -69,7 +69,7 @@
 
 ### Trương Minh Sơn
 **TASKS_COMPLETED:**
-- Implemented a robust observability pipeline featuring Langfuse tracing, automated PII scrubbing for logs and traces, and a comprehensive banking-specific test suite to monitor AI agent performance and security.
+- Implemented a robust observability pipeline featuring Langfuse tracing, automated PII scrubbing for logs and traces, and a comprehensive banking-specific test suite to monitor AI agent performance and security, Successfully implement waterfall traces
 **EVIDENCE_LINK:**
 - Correlation ID Tracking: [https://github.com/solar11781/Lab13-Observability/blob/main/app/middleware.py](https://github.com/solar11781/Lab13-Observability/blob/main/app/middleware.py)
 - Langfuse Integration: [https://github.com/solar11781/Lab13-Observability/blob/main/app/tracing.py](https://github.com/solar11781/Lab13-Observability/blob/main/app/tracing.py)
