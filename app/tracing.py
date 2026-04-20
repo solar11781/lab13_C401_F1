@@ -11,12 +11,26 @@ except Exception:  # pragma: no cover
             return func
         return decorator
 
+    class _DummySpan:
+        def __enter__(self):
+            return self
+
+        def __exit__(self, exc_type, exc, tb):
+            return False
+
+        def update(self, **kwargs):
+            return None
+
+
     class _DummyContext:
         def update_current_trace(self, **kwargs: Any) -> None:
             return None
 
         def update_current_observation(self, **kwargs: Any) -> None:
             return None
+
+        def span(self, name: str = ""):
+            return _DummySpan()
 
     langfuse_context = _DummyContext()
 

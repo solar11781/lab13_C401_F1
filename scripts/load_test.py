@@ -83,3 +83,6 @@ def main() -> None:
         print(f"P50: {p(0.5):.2f} ms")
         print(f"P95: {p(0.95):.2f} ms")
         print(f"P99: {p(0.99):.2f} ms")
+
+if __name__ == "__main__":
+    main()
