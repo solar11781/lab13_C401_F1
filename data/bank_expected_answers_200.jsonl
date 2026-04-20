@@ -1,0 +1,200 @@
+{"question": "What is my account balance?", "must_include": ["balance", "account"]}
+{"question": "Show my available balance and current balance", "must_include": ["available balance", "current balance"]}
+{"question": "What is the difference between ledger balance and available balance?", "must_include": ["ledger balance", "available balance"]}
+{"question": "How can I check my account balance in the mobile banking app?", "must_include": ["mobile app", "balance"]}
+{"question": "Can I check my balance without going to a branch?", "must_include": ["online banking", "balance"]}
+{"question": "What types of bank accounts do you offer?", "must_include": ["checking", "savings"]}
+{"question": "How do I open a savings account?", "must_include": ["open", "savings account"]}
+{"question": "How do I close my bank account?", "must_include": ["close account", "verification"]}
+{"question": "Is there a minimum balance requirement for my account?", "must_include": ["minimum balance", "account type"]}
+{"question": "What happens if my balance drops below the minimum?", "must_include": ["minimum balance", "fee"]}
+{"question": "Do you charge a monthly maintenance fee?", "must_include": ["maintenance fee", "account"]}
+{"question": "How do I update my mailing address on my account?", "must_include": ["update", "address"]}
+{"question": "How do I update my phone number for banking notifications?", "must_include": ["update", "phone number"]}
+{"question": "How do I update my email address in online banking?", "must_include": ["update", "email"]}
+{"question": "Can I link multiple accounts in one profile?", "must_include": ["link", "multiple accounts"]}
+{"question": "How do I rename my account nickname in the app?", "must_include": ["nickname", "app"]}
+{"question": "What is my customer ID and where can I find it?", "must_include": ["customer ID", "statement"]}
+{"question": "What is branch code BNK-HCM-01 used for?", "must_include": ["branch code", "transaction"]}
+{"question": "Can I open a joint account?", "must_include": ["joint account", "documents"]}
+{"question": "Can I open an account online if I am a new customer?", "must_include": ["online", "identity verification"]}
+{"question": "Show my last 5 transactions", "must_include": ["last 5 transactions", "history"]}
+{"question": "Where can I see my transaction history?", "must_include": ["transaction history", "app"]}
+{"question": "How far back can I view transaction history?", "must_include": ["history", "date range"]}
+{"question": "Can I export my transactions to CSV?", "must_include": ["export", "CSV"]}
+{"question": "How do I search transactions by date and amount?", "must_include": ["search", "date"]}
+{"question": "Summarize my recent transactions", "must_include": ["transactions", "summary"]}
+{"question": "Give me a summary of my spending this week", "must_include": ["spending", "week"]}
+{"question": "Summarize my deposits and withdrawals for this month", "must_include": ["deposits", "withdrawals"]}
+{"question": "Give me a short summary of my account activity", "must_include": ["account activity", "summary"]}
+{"question": "Summarize my outgoing transfers", "must_include": ["outgoing transfers", "summary"]}
+{"question": "Summarize my incoming transfers", "must_include": ["incoming transfers", "summary"]}
+{"question": "Show a summary of my card spending by category", "must_include": ["spending", "category"]}
+{"question": "Summarize my ATM withdrawals for the last 30 days", "must_include": ["ATM withdrawals", "30 days"]}
+{"question": "Give me my month-end banking summary", "must_include": ["month-end", "summary"]}
+{"question": "Summarize my salary credits and bill payments", "must_include": ["salary", "bill payments"]}
+{"question": "Why is one of my transactions pending?", "must_include": ["pending", "transaction"]}
+{"question": "Why was my transaction reversed?", "must_include": ["reversed", "transaction"]}
+{"question": "How do I dispute an unauthorized transaction?", "must_include": ["dispute", "unauthorized"]}
+{"question": "How can I download an account statement?", "must_include": ["statement", "download"]}
+{"question": "Can I get a stamped bank statement from a branch?", "must_include": ["bank statement", "branch"]}
+{"question": "How do I transfer money to another bank?", "must_include": ["transfer", "recipient"]}
+{"question": "How do I transfer money between my own accounts?", "must_include": ["transfer", "own accounts"]}
+{"question": "What is the daily transfer limit?", "must_include": ["daily transfer limit", "security"]}
+{"question": "Can I increase my transfer limit?", "must_include": ["increase", "transfer limit"]}
+{"question": "How much is the fee for interbank transfer?", "must_include": ["fee", "interbank transfer"]}
+{"question": "How long does an interbank transfer take?", "must_include": ["interbank transfer", "processing time"]}
+{"question": "What information do I need to add a beneficiary?", "must_include": ["beneficiary", "account number"]}
+{"question": "How do I delete a saved beneficiary?", "must_include": ["delete", "beneficiary"]}
+{"question": "Can I schedule a transfer for tomorrow morning?", "must_include": ["schedule", "transfer"]}
+{"question": "Can I cancel a scheduled transfer?", "must_include": ["cancel", "scheduled transfer"]}
+{"question": "What is a transaction reference number?", "must_include": ["transaction reference", "tracking"]}
+{"question": "Where can I find transfer status after I send money?", "must_include": ["transfer status", "tracking"]}
+{"question": "Why did my transfer fail?", "must_include": ["transfer failed", "reason"]}
+{"question": "What should I do if I sent money to the wrong account?", "must_include": ["wrong account", "support"]}
+{"question": "Can I transfer money internationally from the app?", "must_include": ["international transfer", "app"]}
+{"question": "What is a SWIFT code and when do I need it?", "must_include": ["SWIFT code", "international"]}
+{"question": "What is the difference between IBAN and account number?", "must_include": ["IBAN", "account number"]}
+{"question": "How much are international transfer charges?", "must_include": ["international transfer", "charges"]}
+{"question": "How long does a wire transfer usually take?", "must_include": ["wire transfer", "business days"]}
+{"question": "Can I receive money from overseas into my VND account?", "must_include": ["overseas", "VND account"]}
+{"question": "How do I activate my debit card?", "must_include": ["activate", "debit card"]}
+{"question": "How do I activate my credit card?", "must_include": ["activate", "credit card"]}
+{"question": "My card is lost. What should I do right now?", "must_include": ["block", "card"]}
+{"question": "How do I temporarily lock my card in the app?", "must_include": ["lock", "card"]}
+{"question": "Can I unlock my card after I find it?", "must_include": ["unlock", "card"]}
+{"question": "My card was swallowed by an ATM. What should I do?", "must_include": ["ATM", "support"]}
+{"question": "How do I change my card PIN?", "must_include": ["change", "PIN"]}
+{"question": "What is my credit card limit?", "must_include": ["credit limit", "card"]}
+{"question": "How do I request a credit limit increase?", "must_include": ["increase", "credit limit"]}
+{"question": "How do I pay my credit card bill?", "must_include": ["pay", "credit card bill"]}
+{"question": "What is the minimum payment due on my credit card?", "must_include": ["minimum payment", "credit card"]}
+{"question": "What happens if I miss my credit card payment?", "must_include": ["late fee", "interest"]}
+{"question": "Can I convert my card purchase into installments?", "must_include": ["installments", "purchase"]}
+{"question": "How do I view my credit card statement?", "must_include": ["credit card statement", "view"]}
+{"question": "How do I report card fraud?", "must_include": ["report", "fraud"]}
+{"question": "Why was my card payment declined?", "must_include": ["declined", "card"]}
+{"question": "Can I use my card overseas?", "must_include": ["overseas", "card"]}
+{"question": "How do I turn on travel notice for my card?", "must_include": ["travel notice", "card"]}
+{"question": "Can I set online transaction limits for my card?", "must_include": ["online transaction limits", "card"]}
+{"question": "How do I replace an expired debit card?", "must_include": ["replace", "expired card"]}
+{"question": "How do I reset my online banking password?", "must_include": ["reset", "password"]}
+{"question": "How do I change my login password after signing in?", "must_include": ["change", "password"]}
+{"question": "What is OTP and why do I need it?", "must_include": ["OTP", "security"]}
+{"question": "How do I enable two-factor authentication?", "must_include": ["two-factor authentication", "security"]}
+{"question": "I did not receive my OTP. What should I do?", "must_include": ["OTP", "retry"]}
+{"question": "My account is locked after too many failed logins. What now?", "must_include": ["locked", "verify identity"]}
+{"question": "How do I log out from all devices?", "must_include": ["log out", "all devices"]}
+{"question": "How do I review my recent login activity?", "must_include": ["login activity", "security"]}
+{"question": "What should I do if I suspect phishing?", "must_include": ["phishing", "report"]}
+{"question": "How do I secure my bank account on a new phone?", "must_include": ["new phone", "security"]}
+{"question": "What should I do if I receive a fake bank call asking for OTP?", "must_include": ["OTP", "never share"]}
+{"question": "Can the bank ask for my full password by phone?", "must_include": ["never", "password"]}
+{"question": "How do I report unauthorized login to my account?", "must_include": ["unauthorized login", "support"]}
+{"question": "Can I set biometric login in the mobile app?", "must_include": ["biometric", "mobile app"]}
+{"question": "How do I turn off biometric login?", "must_include": ["disable", "biometric"]}
+{"question": "Why did I get a login alert from another device?", "must_include": ["login alert", "device"]}
+{"question": "What is device binding in mobile banking?", "must_include": ["device binding", "security"]}
+{"question": "How do I verify a security alert email from the bank?", "must_include": ["security alert", "official channels"]}
+{"question": "How do I change my security questions?", "must_include": ["security questions", "change"]}
+{"question": "How do I block suspicious transactions immediately?", "must_include": ["suspicious transactions", "block"]}
+{"question": "How do I apply for a personal loan?", "must_include": ["personal loan", "apply"]}
+{"question": "What documents are required for a home loan?", "must_include": ["home loan", "documents"]}
+{"question": "How is loan interest calculated?", "must_include": ["loan interest", "principal"]}
+{"question": "What is EMI?", "must_include": ["EMI", "monthly payment"]}
+{"question": "How can I check my loan application status?", "must_include": ["loan application", "status"]}
+{"question": "Can I repay my loan early?", "must_include": ["repay early", "prepayment"]}
+{"question": "Is there a penalty for early loan repayment?", "must_include": ["penalty", "early repayment"]}
+{"question": "How do I download my loan repayment schedule?", "must_include": ["loan repayment schedule", "download"]}
+{"question": "What is the overdue fee on a loan installment?", "must_include": ["overdue fee", "loan"]}
+{"question": "How do I set up auto-debit for my loan payment?", "must_include": ["auto-debit", "loan payment"]}
+{"question": "What is a fixed deposit?", "must_include": ["fixed deposit", "interest"]}
+{"question": "How do I open a fixed deposit online?", "must_include": ["open", "fixed deposit"]}
+{"question": "Can I break my fixed deposit before maturity?", "must_include": ["before maturity", "fixed deposit"]}
+{"question": "How is fixed deposit interest paid?", "must_include": ["fixed deposit interest", "maturity"]}
+{"question": "What deposit tenures are available?", "must_include": ["tenure", "deposit"]}
+{"question": "How do I renew my fixed deposit at maturity?", "must_include": ["renew", "maturity"]}
+{"question": "Can I use my fixed deposit as collateral?", "must_include": ["collateral", "fixed deposit"]}
+{"question": "What is the difference between savings and fixed deposit?", "must_include": ["savings", "fixed deposit"]}
+{"question": "Summarize my loan repayment activity this quarter", "must_include": ["loan repayment", "quarter"]}
+{"question": "Summarize my deposit balances and maturity dates", "must_include": ["deposit balances", "maturity dates"]}
+{"question": "What documents are required for KYC verification?", "must_include": ["KYC", "identity"]}
+{"question": "Can I use CCCD for identity verification?", "must_include": ["CCCD", "identity verification"]}
+{"question": "How do I update my KYC after changing address?", "must_include": ["update", "KYC"]}
+{"question": "Why is my account restricted due to incomplete KYC?", "must_include": ["restricted", "KYC"]}
+{"question": "How does the bank protect my personal data?", "must_include": ["personal data", "protection"]}
+{"question": "What personal data should never appear in logs?", "must_include": ["personal data", "logs"]}
+{"question": "If I type my account number into chat, should it be redacted?", "must_include": ["account number", "redacted"]}
+{"question": "If I type my card number into chat, should it be masked?", "must_include": ["card number", "masked"]}
+{"question": "If I share my CCCD, should it be hidden from logs?", "must_include": ["CCCD", "hidden"]}
+{"question": "If I type transaction code, is that sensitive?", "must_include": ["transaction code", "sensitive"]}
+{"question": "How do you handle GDPR data access requests?", "must_include": ["GDPR", "data access"]}
+{"question": "How do you handle data deletion requests?", "must_include": ["data deletion", "request"]}
+{"question": "What is the log retention period for banking audit logs?", "must_include": ["log retention", "audit logs"]}
+{"question": "Why do banking actions require audit logs?", "must_include": ["audit logs", "compliance"]}
+{"question": "What is audit_required in banking logs?", "must_include": ["audit_required", "compliance"]}
+{"question": "Why is pii_redacted important in production?", "must_include": ["pii_redacted", "production"]}
+{"question": "What is risk_level in a banking trace?", "must_include": ["risk level", "trace"]}
+{"question": "What tags should appear in a banking trace for a transfer?", "must_include": ["tags", "transaction_id"]}
+{"question": "Why should traces mask sensitive customer data?", "must_include": ["mask", "sensitive data"]}
+{"question": "Summarize the bank privacy and logging policy", "must_include": ["privacy", "logging policy"]}
+{"question": "How do I contact customer support?", "must_include": ["customer support", "contact"]}
+{"question": "What are branch working hours?", "must_include": ["branch", "working hours"]}
+{"question": "How do I find the nearest ATM?", "must_include": ["nearest ATM", "locator"]}
+{"question": "What should I do if ATM cash withdrawal failed but money was debited?", "must_include": ["ATM withdrawal", "debited"]}
+{"question": "How long does ATM cash reversal take?", "must_include": ["ATM", "reversal"]}
+{"question": "Can I deposit cash at any branch?", "must_include": ["deposit cash", "branch"]}
+{"question": "Can I withdraw cash without my card?", "must_include": ["withdraw cash", "cardless"]}
+{"question": "How do I request a cheque book?", "must_include": ["cheque book", "request"]}
+{"question": "How do I stop a cheque payment?", "must_include": ["stop cheque", "payment"]}
+{"question": "How do I verify a bank transaction receipt?", "must_include": ["transaction receipt", "verify"]}
+{"question": "Can I get support in Vietnamese and English?", "must_include": ["Vietnamese", "English"]}
+{"question": "How do I book an appointment with a branch?", "must_include": ["appointment", "branch"]}
+{"question": "What should I do if the mobile app is down?", "must_include": ["mobile app", "support"]}
+{"question": "What should I do if online banking is slow during peak hours?", "must_include": ["peak hours", "support"]}
+{"question": "How do I report an issue with QR payment?", "must_include": ["QR payment", "report"]}
+{"question": "Can I request callback from customer support?", "must_include": ["callback", "customer support"]}
+{"question": "Summarize the support options available to me", "must_include": ["support options", "summary"]}
+{"question": "Summarize my unresolved service requests", "must_include": ["service requests", "unresolved"]}
+{"question": "Give me a summary of branch and ATM services", "must_include": ["branch", "ATM"]}
+{"question": "Summarize my recent support interactions", "must_include": ["support interactions", "summary"]}
+{"question": "What kinds of insurance products does the bank offer?", "must_include": ["insurance", "products"]}
+{"question": "What is a debit card overdraft?", "must_include": ["overdraft", "debit card"]}
+{"question": "What is cashback on a credit card?", "must_include": ["cashback", "credit card"]}
+{"question": "How do reward points work on my card?", "must_include": ["reward points", "card"]}
+{"question": "How do I redeem reward points?", "must_include": ["redeem", "reward points"]}
+{"question": "Can I get notified for every outgoing transaction?", "must_include": ["notifications", "outgoing transaction"]}
+{"question": "How do I enable low balance alerts?", "must_include": ["low balance alerts", "enable"]}
+{"question": "How do I enable login alerts?", "must_include": ["login alerts", "enable"]}
+{"question": "How do I enable large transaction alerts?", "must_include": ["large transaction alerts", "enable"]}
+{"question": "Can I choose SMS or push notifications?", "must_include": ["SMS", "push notifications"]}
+{"question": "What is a suspicious login from another country?", "must_include": ["another country", "suspicious login"]}
+{"question": "Why did I receive a transaction risk alert?", "must_include": ["risk alert", "transaction"]}
+{"question": "What should I do after three failed login attempts?", "must_include": ["failed login attempts", "security"]}
+{"question": "How do bank fraud alerts work?", "must_include": ["fraud alerts", "monitoring"]}
+{"question": "How do I confirm a suspicious transaction alert is real?", "must_include": ["suspicious transaction", "official channels"]}
+{"question": "Summarize my active alerts and notifications", "must_include": ["active alerts", "notifications"]}
+{"question": "Summarize my high-risk events this month", "must_include": ["high-risk events", "month"]}
+{"question": "Summarize my card alerts and login alerts", "must_include": ["card alerts", "login alerts"]}
+{"question": "Give me a summary of my product usage", "must_include": ["product usage", "summary"]}
+{"question": "Summarize my fees, charges, and interest this month", "must_include": ["fees", "interest"]}
+{"question": "Why is the chatbot slower than usual at 9 AM?", "must_include": ["9 AM", "high traffic"]}
+{"question": "Why is banking support slower at the end of the month?", "must_include": ["end of the month", "high volume"]}
+{"question": "What happens if the transfer system is temporarily unavailable?", "must_include": ["transfer system", "temporarily unavailable"]}
+{"question": "What should I do if money transfer service is down?", "must_include": ["money transfer service", "support"]}
+{"question": "How will I know if there is a service outage?", "must_include": ["service outage", "notification"]}
+{"question": "Does the bank monitor unusual spikes in traffic?", "must_include": ["spikes in traffic", "monitor"]}
+{"question": "What should happen if sensitive customer information appears in chat?", "must_include": ["sensitive customer information", "redacted"]}
+{"question": "How should the bank respond to abnormal error rates?", "must_include": ["error rates", "incident"]}
+{"question": "Summarize the bank's incident response workflow", "must_include": ["incident response", "workflow"]}
+{"question": "Summarize how the bank handles transfer failures", "must_include": ["transfer failures", "summary"]}
+{"question": "Summarize how the bank handles customer data leaks", "must_include": ["data leaks", "summary"]}
+{"question": "Give me a summary of peak-hour performance issues", "must_include": ["peak-hour", "performance"]}
+{"question": "How do metrics, traces, and logs help investigate banking incidents?", "must_include": ["metrics", "traces", "logs"]}
+{"question": "What is correlation_id in a banking support request?", "must_include": ["correlation_id", "request"]}
+{"question": "What is trace_id in a banking chatbot log?", "must_include": ["trace_id", "log"]}
+{"question": "What is span_id in a banking trace?", "must_include": ["span_id", "trace"]}
+{"question": "Why is branch_code useful in a banking dashboard?", "must_include": ["branch_code", "dashboard"]}
+{"question": "Why is customer_segment useful in monitoring?", "must_include": ["customer_segment", "monitoring"]}
+{"question": "Why should dashboards track latency_total_ms, latency_llm_ms, and latency_rag_ms?", "must_include": ["latency_total_ms", "latency_llm_ms", "latency_rag_ms"]}
+{"question": "Summarize the key metadata in a banking chatbot log entry", "must_include": ["correlation_id", "branch_code", "latency"]}

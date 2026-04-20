@@ -1,0 +1,200 @@
+{"user_id": "u001", "session_id": "s001", "feature": "qa", "message": "What is my account balance?"}
+{"user_id": "u002", "session_id": "s002", "feature": "qa", "message": "Show my available balance and current balance"}
+{"user_id": "u003", "session_id": "s003", "feature": "qa", "message": "What is the difference between ledger balance and available balance?"}
+{"user_id": "u004", "session_id": "s004", "feature": "qa", "message": "How can I check my account balance in the mobile banking app?"}
+{"user_id": "u005", "session_id": "s005", "feature": "qa", "message": "Can I check my balance without going to a branch?"}
+{"user_id": "u006", "session_id": "s006", "feature": "qa", "message": "What types of bank accounts do you offer?"}
+{"user_id": "u007", "session_id": "s007", "feature": "qa", "message": "How do I open a savings account?"}
+{"user_id": "u008", "session_id": "s008", "feature": "qa", "message": "How do I close my bank account?"}
+{"user_id": "u009", "session_id": "s009", "feature": "qa", "message": "Is there a minimum balance requirement for my account?"}
+{"user_id": "u010", "session_id": "s010", "feature": "qa", "message": "What happens if my balance drops below the minimum?"}
+{"user_id": "u011", "session_id": "s011", "feature": "qa", "message": "Do you charge a monthly maintenance fee?"}
+{"user_id": "u012", "session_id": "s012", "feature": "qa", "message": "How do I update my mailing address on my account?"}
+{"user_id": "u013", "session_id": "s013", "feature": "qa", "message": "How do I update my phone number for banking notifications?"}
+{"user_id": "u014", "session_id": "s014", "feature": "qa", "message": "How do I update my email address in online banking?"}
+{"user_id": "u015", "session_id": "s015", "feature": "qa", "message": "Can I link multiple accounts in one profile?"}
+{"user_id": "u016", "session_id": "s016", "feature": "qa", "message": "How do I rename my account nickname in the app?"}
+{"user_id": "u017", "session_id": "s017", "feature": "qa", "message": "What is my customer ID and where can I find it?"}
+{"user_id": "u018", "session_id": "s018", "feature": "qa", "message": "What is branch code BNK-HCM-01 used for?"}
+{"user_id": "u019", "session_id": "s019", "feature": "qa", "message": "Can I open a joint account?"}
+{"user_id": "u020", "session_id": "s020", "feature": "qa", "message": "Can I open an account online if I am a new customer?"}
+{"user_id": "u021", "session_id": "s021", "feature": "qa", "message": "Show my last 5 transactions"}
+{"user_id": "u022", "session_id": "s022", "feature": "qa", "message": "Where can I see my transaction history?"}
+{"user_id": "u023", "session_id": "s023", "feature": "qa", "message": "How far back can I view transaction history?"}
+{"user_id": "u024", "session_id": "s024", "feature": "qa", "message": "Can I export my transactions to CSV?"}
+{"user_id": "u025", "session_id": "s025", "feature": "qa", "message": "How do I search transactions by date and amount?"}
+{"user_id": "u026", "session_id": "s026", "feature": "summary", "message": "Summarize my recent transactions"}
+{"user_id": "u027", "session_id": "s027", "feature": "summary", "message": "Give me a summary of my spending this week"}
+{"user_id": "u028", "session_id": "s028", "feature": "summary", "message": "Summarize my deposits and withdrawals for this month"}
+{"user_id": "u029", "session_id": "s029", "feature": "summary", "message": "Give me a short summary of my account activity"}
+{"user_id": "u030", "session_id": "s030", "feature": "summary", "message": "Summarize my outgoing transfers"}
+{"user_id": "u031", "session_id": "s031", "feature": "summary", "message": "Summarize my incoming transfers"}
+{"user_id": "u032", "session_id": "s032", "feature": "summary", "message": "Show a summary of my card spending by category"}
+{"user_id": "u033", "session_id": "s033", "feature": "summary", "message": "Summarize my ATM withdrawals for the last 30 days"}
+{"user_id": "u034", "session_id": "s034", "feature": "summary", "message": "Give me my month-end banking summary"}
+{"user_id": "u035", "session_id": "s035", "feature": "summary", "message": "Summarize my salary credits and bill payments"}
+{"user_id": "u036", "session_id": "s036", "feature": "qa", "message": "Why is one of my transactions pending?"}
+{"user_id": "u037", "session_id": "s037", "feature": "qa", "message": "Why was my transaction reversed?"}
+{"user_id": "u038", "session_id": "s038", "feature": "qa", "message": "How do I dispute an unauthorized transaction?"}
+{"user_id": "u039", "session_id": "s039", "feature": "qa", "message": "How can I download an account statement?"}
+{"user_id": "u040", "session_id": "s040", "feature": "qa", "message": "Can I get a stamped bank statement from a branch?"}
+{"user_id": "u041", "session_id": "s041", "feature": "qa", "message": "How do I transfer money to another bank?"}
+{"user_id": "u042", "session_id": "s042", "feature": "qa", "message": "How do I transfer money between my own accounts?"}
+{"user_id": "u043", "session_id": "s043", "feature": "qa", "message": "What is the daily transfer limit?"}
+{"user_id": "u044", "session_id": "s044", "feature": "qa", "message": "Can I increase my transfer limit?"}
+{"user_id": "u045", "session_id": "s045", "feature": "qa", "message": "How much is the fee for interbank transfer?"}
+{"user_id": "u046", "session_id": "s046", "feature": "qa", "message": "How long does an interbank transfer take?"}
+{"user_id": "u047", "session_id": "s047", "feature": "qa", "message": "What information do I need to add a beneficiary?"}
+{"user_id": "u048", "session_id": "s048", "feature": "qa", "message": "How do I delete a saved beneficiary?"}
+{"user_id": "u049", "session_id": "s049", "feature": "qa", "message": "Can I schedule a transfer for tomorrow morning?"}
+{"user_id": "u050", "session_id": "s050", "feature": "qa", "message": "Can I cancel a scheduled transfer?"}
+{"user_id": "u051", "session_id": "s051", "feature": "qa", "message": "What is a transaction reference number?"}
+{"user_id": "u052", "session_id": "s052", "feature": "qa", "message": "Where can I find transfer status after I send money?"}
+{"user_id": "u053", "session_id": "s053", "feature": "qa", "message": "Why did my transfer fail?"}
+{"user_id": "u054", "session_id": "s054", "feature": "qa", "message": "What should I do if I sent money to the wrong account?"}
+{"user_id": "u055", "session_id": "s055", "feature": "qa", "message": "Can I transfer money internationally from the app?"}
+{"user_id": "u056", "session_id": "s056", "feature": "qa", "message": "What is a SWIFT code and when do I need it?"}
+{"user_id": "u057", "session_id": "s057", "feature": "qa", "message": "What is the difference between IBAN and account number?"}
+{"user_id": "u058", "session_id": "s058", "feature": "qa", "message": "How much are international transfer charges?"}
+{"user_id": "u059", "session_id": "s059", "feature": "qa", "message": "How long does a wire transfer usually take?"}
+{"user_id": "u060", "session_id": "s060", "feature": "qa", "message": "Can I receive money from overseas into my VND account?"}
+{"user_id": "u061", "session_id": "s061", "feature": "qa", "message": "How do I activate my debit card?"}
+{"user_id": "u062", "session_id": "s062", "feature": "qa", "message": "How do I activate my credit card?"}
+{"user_id": "u063", "session_id": "s063", "feature": "qa", "message": "My card is lost. What should I do right now?"}
+{"user_id": "u064", "session_id": "s064", "feature": "qa", "message": "How do I temporarily lock my card in the app?"}
+{"user_id": "u065", "session_id": "s065", "feature": "qa", "message": "Can I unlock my card after I find it?"}
+{"user_id": "u066", "session_id": "s066", "feature": "qa", "message": "My card was swallowed by an ATM. What should I do?"}
+{"user_id": "u067", "session_id": "s067", "feature": "qa", "message": "How do I change my card PIN?"}
+{"user_id": "u068", "session_id": "s068", "feature": "qa", "message": "What is my credit card limit?"}
+{"user_id": "u069", "session_id": "s069", "feature": "qa", "message": "How do I request a credit limit increase?"}
+{"user_id": "u070", "session_id": "s070", "feature": "qa", "message": "How do I pay my credit card bill?"}
+{"user_id": "u071", "session_id": "s071", "feature": "qa", "message": "What is the minimum payment due on my credit card?"}
+{"user_id": "u072", "session_id": "s072", "feature": "qa", "message": "What happens if I miss my credit card payment?"}
+{"user_id": "u073", "session_id": "s073", "feature": "qa", "message": "Can I convert my card purchase into installments?"}
+{"user_id": "u074", "session_id": "s074", "feature": "qa", "message": "How do I view my credit card statement?"}
+{"user_id": "u075", "session_id": "s075", "feature": "qa", "message": "How do I report card fraud?"}
+{"user_id": "u076", "session_id": "s076", "feature": "qa", "message": "Why was my card payment declined?"}
+{"user_id": "u077", "session_id": "s077", "feature": "qa", "message": "Can I use my card overseas?"}
+{"user_id": "u078", "session_id": "s078", "feature": "qa", "message": "How do I turn on travel notice for my card?"}
+{"user_id": "u079", "session_id": "s079", "feature": "qa", "message": "Can I set online transaction limits for my card?"}
+{"user_id": "u080", "session_id": "s080", "feature": "qa", "message": "How do I replace an expired debit card?"}
+{"user_id": "u081", "session_id": "s081", "feature": "qa", "message": "How do I reset my online banking password?"}
+{"user_id": "u082", "session_id": "s082", "feature": "qa", "message": "How do I change my login password after signing in?"}
+{"user_id": "u083", "session_id": "s083", "feature": "qa", "message": "What is OTP and why do I need it?"}
+{"user_id": "u084", "session_id": "s084", "feature": "qa", "message": "How do I enable two-factor authentication?"}
+{"user_id": "u085", "session_id": "s085", "feature": "qa", "message": "I did not receive my OTP. What should I do?"}
+{"user_id": "u086", "session_id": "s086", "feature": "qa", "message": "My account is locked after too many failed logins. What now?"}
+{"user_id": "u087", "session_id": "s087", "feature": "qa", "message": "How do I log out from all devices?"}
+{"user_id": "u088", "session_id": "s088", "feature": "qa", "message": "How do I review my recent login activity?"}
+{"user_id": "u089", "session_id": "s089", "feature": "qa", "message": "What should I do if I suspect phishing?"}
+{"user_id": "u090", "session_id": "s090", "feature": "qa", "message": "How do I secure my bank account on a new phone?"}
+{"user_id": "u091", "session_id": "s091", "feature": "qa", "message": "What should I do if I receive a fake bank call asking for OTP?"}
+{"user_id": "u092", "session_id": "s092", "feature": "qa", "message": "Can the bank ask for my full password by phone?"}
+{"user_id": "u093", "session_id": "s093", "feature": "qa", "message": "How do I report unauthorized login to my account?"}
+{"user_id": "u094", "session_id": "s094", "feature": "qa", "message": "Can I set biometric login in the mobile app?"}
+{"user_id": "u095", "session_id": "s095", "feature": "qa", "message": "How do I turn off biometric login?"}
+{"user_id": "u096", "session_id": "s096", "feature": "qa", "message": "Why did I get a login alert from another device?"}
+{"user_id": "u097", "session_id": "s097", "feature": "qa", "message": "What is device binding in mobile banking?"}
+{"user_id": "u098", "session_id": "s098", "feature": "qa", "message": "How do I verify a security alert email from the bank?"}
+{"user_id": "u099", "session_id": "s099", "feature": "qa", "message": "How do I change my security questions?"}
+{"user_id": "u100", "session_id": "s100", "feature": "qa", "message": "How do I block suspicious transactions immediately?"}
+{"user_id": "u101", "session_id": "s101", "feature": "qa", "message": "How do I apply for a personal loan?"}
+{"user_id": "u102", "session_id": "s102", "feature": "qa", "message": "What documents are required for a home loan?"}
+{"user_id": "u103", "session_id": "s103", "feature": "qa", "message": "How is loan interest calculated?"}
+{"user_id": "u104", "session_id": "s104", "feature": "qa", "message": "What is EMI?"}
+{"user_id": "u105", "session_id": "s105", "feature": "qa", "message": "How can I check my loan application status?"}
+{"user_id": "u106", "session_id": "s106", "feature": "qa", "message": "Can I repay my loan early?"}
+{"user_id": "u107", "session_id": "s107", "feature": "qa", "message": "Is there a penalty for early loan repayment?"}
+{"user_id": "u108", "session_id": "s108", "feature": "qa", "message": "How do I download my loan repayment schedule?"}
+{"user_id": "u109", "session_id": "s109", "feature": "qa", "message": "What is the overdue fee on a loan installment?"}
+{"user_id": "u110", "session_id": "s110", "feature": "qa", "message": "How do I set up auto-debit for my loan payment?"}
+{"user_id": "u111", "session_id": "s111", "feature": "qa", "message": "What is a fixed deposit?"}
+{"user_id": "u112", "session_id": "s112", "feature": "qa", "message": "How do I open a fixed deposit online?"}
+{"user_id": "u113", "session_id": "s113", "feature": "qa", "message": "Can I break my fixed deposit before maturity?"}
+{"user_id": "u114", "session_id": "s114", "feature": "qa", "message": "How is fixed deposit interest paid?"}
+{"user_id": "u115", "session_id": "s115", "feature": "qa", "message": "What deposit tenures are available?"}
+{"user_id": "u116", "session_id": "s116", "feature": "qa", "message": "How do I renew my fixed deposit at maturity?"}
+{"user_id": "u117", "session_id": "s117", "feature": "qa", "message": "Can I use my fixed deposit as collateral?"}
+{"user_id": "u118", "session_id": "s118", "feature": "qa", "message": "What is the difference between savings and fixed deposit?"}
+{"user_id": "u119", "session_id": "s119", "feature": "summary", "message": "Summarize my loan repayment activity this quarter"}
+{"user_id": "u120", "session_id": "s120", "feature": "summary", "message": "Summarize my deposit balances and maturity dates"}
+{"user_id": "u121", "session_id": "s121", "feature": "qa", "message": "What documents are required for KYC verification?"}
+{"user_id": "u122", "session_id": "s122", "feature": "qa", "message": "Can I use CCCD for identity verification?"}
+{"user_id": "u123", "session_id": "s123", "feature": "qa", "message": "How do I update my KYC after changing address?"}
+{"user_id": "u124", "session_id": "s124", "feature": "qa", "message": "Why is my account restricted due to incomplete KYC?"}
+{"user_id": "u125", "session_id": "s125", "feature": "qa", "message": "How does the bank protect my personal data?"}
+{"user_id": "u126", "session_id": "s126", "feature": "qa", "message": "What personal data should never appear in logs?"}
+{"user_id": "u127", "session_id": "s127", "feature": "qa", "message": "If I type my account number 123456789012 into chat, should it be redacted?"}
+{"user_id": "u128", "session_id": "s128", "feature": "qa", "message": "If I type my card number 4111 1111 1111 1111 into chat, should it be masked?"}
+{"user_id": "u129", "session_id": "s129", "feature": "qa", "message": "If I share my CCCD 079203001234, should it be hidden from logs?"}
+{"user_id": "u130", "session_id": "s130", "feature": "qa", "message": "If I type transaction code TXN-938475, is that sensitive?"}
+{"user_id": "u131", "session_id": "s131", "feature": "qa", "message": "How do you handle GDPR data access requests?"}
+{"user_id": "u132", "session_id": "s132", "feature": "qa", "message": "How do you handle data deletion requests?"}
+{"user_id": "u133", "session_id": "s133", "feature": "qa", "message": "What is the log retention period for banking audit logs?"}
+{"user_id": "u134", "session_id": "s134", "feature": "qa", "message": "Why do banking actions require audit logs?"}
+{"user_id": "u135", "session_id": "s135", "feature": "qa", "message": "What is audit_required in banking logs?"}
+{"user_id": "u136", "session_id": "s136", "feature": "qa", "message": "Why is pii_redacted important in production?"}
+{"user_id": "u137", "session_id": "s137", "feature": "qa", "message": "What is risk_level in a banking trace?"}
+{"user_id": "u138", "session_id": "s138", "feature": "qa", "message": "What tags should appear in a banking trace for a transfer?"}
+{"user_id": "u139", "session_id": "s139", "feature": "qa", "message": "Why should traces mask sensitive customer data?"}
+{"user_id": "u140", "session_id": "s140", "feature": "summary", "message": "Summarize the bank privacy and logging policy"}
+{"user_id": "u141", "session_id": "s141", "feature": "qa", "message": "How do I contact customer support?"}
+{"user_id": "u142", "session_id": "s142", "feature": "qa", "message": "What are branch working hours?"}
+{"user_id": "u143", "session_id": "s143", "feature": "qa", "message": "How do I find the nearest ATM?"}
+{"user_id": "u144", "session_id": "s144", "feature": "qa", "message": "What should I do if ATM cash withdrawal failed but money was debited?"}
+{"user_id": "u145", "session_id": "s145", "feature": "qa", "message": "How long does ATM cash reversal take?"}
+{"user_id": "u146", "session_id": "s146", "feature": "qa", "message": "Can I deposit cash at any branch?"}
+{"user_id": "u147", "session_id": "s147", "feature": "qa", "message": "Can I withdraw cash without my card?"}
+{"user_id": "u148", "session_id": "s148", "feature": "qa", "message": "How do I request a cheque book?"}
+{"user_id": "u149", "session_id": "s149", "feature": "qa", "message": "How do I stop a cheque payment?"}
+{"user_id": "u150", "session_id": "s150", "feature": "qa", "message": "How do I verify a bank transaction receipt?"}
+{"user_id": "u151", "session_id": "s151", "feature": "qa", "message": "Can I get support in Vietnamese and English?"}
+{"user_id": "u152", "session_id": "s152", "feature": "qa", "message": "How do I book an appointment with a branch?"}
+{"user_id": "u153", "session_id": "s153", "feature": "qa", "message": "What should I do if the mobile app is down?"}
+{"user_id": "u154", "session_id": "s154", "feature": "qa", "message": "What should I do if online banking is slow during peak hours?"}
+{"user_id": "u155", "session_id": "s155", "feature": "qa", "message": "How do I report an issue with QR payment?"}
+{"user_id": "u156", "session_id": "s156", "feature": "qa", "message": "Can I request callback from customer support?"}
+{"user_id": "u157", "session_id": "s157", "feature": "summary", "message": "Summarize the support options available to me"}
+{"user_id": "u158", "session_id": "s158", "feature": "summary", "message": "Summarize my unresolved service requests"}
+{"user_id": "u159", "session_id": "s159", "feature": "summary", "message": "Give me a summary of branch and ATM services"}
+{"user_id": "u160", "session_id": "s160", "feature": "summary", "message": "Summarize my recent support interactions"}
+{"user_id": "u161", "session_id": "s161", "feature": "qa", "message": "What kinds of insurance products does the bank offer?"}
+{"user_id": "u162", "session_id": "s162", "feature": "qa", "message": "What is a debit card overdraft?"}
+{"user_id": "u163", "session_id": "s163", "feature": "qa", "message": "What is cashback on a credit card?"}
+{"user_id": "u164", "session_id": "s164", "feature": "qa", "message": "How do reward points work on my card?"}
+{"user_id": "u165", "session_id": "s165", "feature": "qa", "message": "How do I redeem reward points?"}
+{"user_id": "u166", "session_id": "s166", "feature": "qa", "message": "Can I get notified for every outgoing transaction?"}
+{"user_id": "u167", "session_id": "s167", "feature": "qa", "message": "How do I enable low balance alerts?"}
+{"user_id": "u168", "session_id": "s168", "feature": "qa", "message": "How do I enable login alerts?"}
+{"user_id": "u169", "session_id": "s169", "feature": "qa", "message": "How do I enable large transaction alerts?"}
+{"user_id": "u170", "session_id": "s170", "feature": "qa", "message": "Can I choose SMS or push notifications?"}
+{"user_id": "u171", "session_id": "s171", "feature": "qa", "message": "What is a suspicious login from another country?"}
+{"user_id": "u172", "session_id": "s172", "feature": "qa", "message": "Why did I receive a transaction risk alert?"}
+{"user_id": "u173", "session_id": "s173", "feature": "qa", "message": "What should I do after three failed login attempts?"}
+{"user_id": "u174", "session_id": "s174", "feature": "qa", "message": "How do bank fraud alerts work?"}
+{"user_id": "u175", "session_id": "s175", "feature": "qa", "message": "How do I confirm a suspicious transaction alert is real?"}
+{"user_id": "u176", "session_id": "s176", "feature": "summary", "message": "Summarize my active alerts and notifications"}
+{"user_id": "u177", "session_id": "s177", "feature": "summary", "message": "Summarize my high-risk events this month"}
+{"user_id": "u178", "session_id": "s178", "feature": "summary", "message": "Summarize my card alerts and login alerts"}
+{"user_id": "u179", "session_id": "s179", "feature": "summary", "message": "Give me a summary of my product usage"}
+{"user_id": "u180", "session_id": "s180", "feature": "summary", "message": "Summarize my fees, charges, and interest this month"}
+{"user_id": "u181", "session_id": "s181", "feature": "qa", "message": "Why is the chatbot slower than usual at 9 AM?"}
+{"user_id": "u182", "session_id": "s182", "feature": "qa", "message": "Why is banking support slower at the end of the month?"}
+{"user_id": "u183", "session_id": "s183", "feature": "qa", "message": "What happens if the transfer system is temporarily unavailable?"}
+{"user_id": "u184", "session_id": "s184", "feature": "qa", "message": "What should I do if money transfer service is down?"}
+{"user_id": "u185", "session_id": "s185", "feature": "qa", "message": "How will I know if there is a service outage?"}
+{"user_id": "u186", "session_id": "s186", "feature": "qa", "message": "Does the bank monitor unusual spikes in traffic?"}
+{"user_id": "u187", "session_id": "s187", "feature": "qa", "message": "What should happen if sensitive customer information appears in chat?"}
+{"user_id": "u188", "session_id": "s188", "feature": "qa", "message": "How should the bank respond to abnormal error rates?"}
+{"user_id": "u189", "session_id": "s189", "feature": "summary", "message": "Summarize the bank's incident response workflow"}
+{"user_id": "u190", "session_id": "s190", "feature": "summary", "message": "Summarize how the bank handles transfer failures"}
+{"user_id": "u191", "session_id": "s191", "feature": "summary", "message": "Summarize how the bank handles customer data leaks"}
+{"user_id": "u192", "session_id": "s192", "feature": "summary", "message": "Give me a summary of peak-hour performance issues"}
+{"user_id": "u193", "session_id": "s193", "feature": "qa", "message": "How do metrics, traces, and logs help investigate banking incidents?"}
+{"user_id": "u194", "session_id": "s194", "feature": "qa", "message": "What is correlation_id in a banking support request?"}
+{"user_id": "u195", "session_id": "s195", "feature": "qa", "message": "What is trace_id in a banking chatbot log?"}
+{"user_id": "u196", "session_id": "s196", "feature": "qa", "message": "What is span_id in a banking trace?"}
+{"user_id": "u197", "session_id": "s197", "feature": "qa", "message": "Why is branch_code useful in a banking dashboard?"}
+{"user_id": "u198", "session_id": "s198", "feature": "qa", "message": "Why is customer_segment useful in monitoring?"}
+{"user_id": "u199", "session_id": "s199", "feature": "qa", "message": "Why should dashboards track latency_total_ms, latency_llm_ms, and latency_rag_ms?"}
+{"user_id": "u200", "session_id": "s200", "feature": "summary", "message": "Summarize the key metadata in a banking chatbot log entry"}
