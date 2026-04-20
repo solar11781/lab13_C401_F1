@@ -12,7 +12,14 @@ TRAFFIC: int = 0
 QUALITY_SCORES: list[float] = []
 
 
-def record_request(latency_ms: int, cost_usd: float, tokens_in: int, tokens_out: int, quality_score: float) -> None:
+def record_request(
+    latency_ms: int,
+    cost_usd: float,
+    tokens_in: int,
+    tokens_out: int,
+    quality_score: float,
+    **kwargs
+) -> None:
     global TRAFFIC
     TRAFFIC += 1
     REQUEST_LATENCIES.append(latency_ms)
@@ -50,3 +57,48 @@ def snapshot() -> dict:
         "error_breakdown": dict(ERRORS),
         "quality_avg": round(mean(QUALITY_SCORES), 4) if QUALITY_SCORES else 0.0,
     }
+
+def detect_guardrail_reason(message: str) -> str:
+    """
+    Dummy guardrail detection (for lab purposes).
+    You can expand this later.
+    """
+    if not message:
+        return "empty_input"
+
+    msg = message.lower()
+
+    # simple examples
+    if "account number" in msg or "card number" in msg:
+        return "pii_exposure"
+
+    if "hack" in msg or "bypass" in msg:
+        return "security_risk"
+
+    return "none"
+
+def detect_pii(message: str) -> list[str]:
+    """
+    Simple PII detection for banking domain (lab version).
+    Returns list of detected PII types.
+    """
+    if not message:
+        return []
+
+    msg = message.lower()
+    detected = []
+
+    if any(x in msg for x in ["account number", "stk", "số tài khoản"]):
+        detected.append("account_number")
+
+    if any(x in msg for x in ["card number", "credit card", "thẻ"]):
+        detected.append("card_number")
+
+    if any(x in msg for x in ["cccd", "cmnd", "id number"]):
+        detected.append("national_id")
+
+    if any(x in msg for x in ["otp", "password", "pin"]):
+        detected.append("credential")
+
+    return detected
+

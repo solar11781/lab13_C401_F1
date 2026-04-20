@@ -1,5 +1,8 @@
 from __future__ import annotations
+from dotenv import load_dotenv
+load_dotenv() # Phải nằm ở dòng đầu tiên của file main
 
+from app.tracing import tracing_enabled
 import os
 
 from fastapi import FastAPI, HTTPException, Request

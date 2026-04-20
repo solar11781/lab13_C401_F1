@@ -63,7 +63,7 @@
 - [EVIDENCE_LINK]: (Link to specific commit or PR)
 
 ### Trương Minh Sơn
-- [TASKS_COMPLETED]: 
+- [TASKS_COMPLETED]:
 - [EVIDENCE_LINK]: 
 
 ### Nguyễn Phạm Trà My

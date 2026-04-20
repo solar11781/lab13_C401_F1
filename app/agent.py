@@ -9,7 +9,7 @@ from .mock_llm import FakeLLM
 from .mock_rag import retrieve
 from .pii import hash_user_id, summarize_text
 from .tracing import langfuse_context, observe
-
+from app.tracing import observe, langfuse_context
 
 @dataclass
 class AgentResult:
