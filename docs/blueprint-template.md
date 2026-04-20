@@ -113,7 +113,8 @@
   - Alert được thiết kế trực tiếp dựa trên các SLI trong SLO
   - Hệ thống có khả năng phát hiện và cảnh báo khi vi phạm SLO
 - [EVIDENCE_LINK]:
-- https://github.com/solar11781/lab13_C401_F1/commit/dbead3d5a646a61044eff87638bcb42560b7ca70
+- https://github.com/solar11781/lab13_C401_F1/blob/main/config/alert_rules.yaml
+- https://github.com/solar11781/lab13_C401_F1/blob/main/config/slo.yaml
 
 ### Bùi Trần Gia Bảo
 
@@ -135,8 +136,13 @@
 
 ### Mạc Phương Nga
 
-- [TASKS_COMPLETED]:
-- [EVIDENCE_LINK]:
+**TASKS_COMPLETED:**
+- Update `app/agent.py` và hoàn thành dashboard - `app/dashboard.html`
+**EVIDENCE_LINK:**
+- https://github.com/solar11781/Lab13-Observability/commit/68a62967f06055804fed5ac83f3409a6fb024ffe
+- https://github.com/solar11781/Lab13-Observability/commit/9b0b1f59fc203689b08ecf536451fb21cde1b120
+- https://github.com/solar11781/Lab13-Observability/commit/4d0cc3335c23d0c8336425eaf18e4491aa06b2e1
+- https://github.com/solar11781/Lab13-Observability/commit/87614f6706f695d06f3b78796870b26f4c7a2c1a
 
 ### Lại Gia Khánh
 
