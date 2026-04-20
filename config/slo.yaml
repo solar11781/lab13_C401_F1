@@ -1,16 +1,37 @@
-service: day13-observability-lab
+service: bank-interest-chatbot
 window: 28d
+
 slis:
   latency_p95_ms:
-    objective: 3000
-    target: 99.5
-    note: Replace with your group's target
-  error_rate_pct:
-    objective: 2
+    objective: 2500
     target: 99.0
+    description: >
+      P95 end-to-end response latency must stay under 2500 ms for customer-facing
+      interest-rate advisory requests. This protects user experience during normal traffic.
+
+  error_rate_pct:
+    objective: 2.0
+    target: 99.0
+    description: >
+      Total failed requests must remain below 2 percent. A request counts as failed
+      when the chatbot returns an application error, timeout, or invalid response.
+
   daily_cost_usd:
-    objective: 2.5
+    objective: 3.0
     target: 100.0
+    description: >
+      Daily model cost should stay below 3 USD under expected lab traffic.
+      This helps detect request loops, prompt explosions, or abnormal usage spikes.
+
   quality_score_avg:
-    objective: 0.75
+    objective: 0.85
     target: 95.0
+    description: >
+      Average answer quality for interest-rate questions should remain at or above 0.85.
+      This is the key business SLI for a banking advisory chatbot.
+
+notes:
+  - "latency_p95_ms maps to application/metrics latency output or aggregated request timings."
+  - "error_rate_pct may need to be derived from total requests vs failed requests if not exposed directly."
+  - "daily_cost_usd may need to be derived from cumulative cost_usd over a day."
+  - "quality_score_avg should be computed from evaluation results for sample banking questions."
