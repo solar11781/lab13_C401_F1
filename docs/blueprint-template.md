@@ -16,32 +16,33 @@
 ---
 
 ## 2. Group Performance (Auto-Verified)
-- VALIDATE_LOGS_FINAL_SCORE: /100
-- [TOTAL_TRACES_COUNT]: 
-- [PII_LEAKS_FOUND]: 
+- VALIDATE_LOGS_FINAL_SCORE: 100/100
+- TOTAL_TRACES_COUNT: 200
+- PII_LEAKS_FOUND: 0
 
 ---
 
 ## 3. Technical Evidence (Group)
 
 ### 3.1 Logging & Tracing
-- [EVIDENCE_CORRELATION_ID_SCREENSHOT]: [Path to image]
-- [EVIDENCE_PII_REDACTION_SCREENSHOT]: [Path to image]
-- [EVIDENCE_TRACE_WATERFALL_SCREENSHOT]: [Path to image]
-- [TRACE_WATERFALL_EXPLANATION]: (Briefly explain one interesting span in your trace)
+- EVIDENCE_CORRELATION_ID_SCREENSHOT: ![CORRELATION_ID](/screenshots/correlation_id.png)
+- EVIDENCE_PII_REDACTION_SCREENSHOT: ![PII_REDACTION](/screenshots/pii_redaction.png)
+- EVIDENCE_TRACE_WATERFALL_SCREENSHOT: [Path to image]
+- TRACE_WATERFALL_EXPLANATION: (Briefly explain one interesting span in your trace)
 
 ### 3.2 Dashboard & SLOs
 - [DASHBOARD_6_PANELS_SCREENSHOT]: [Path to image]
 - [SLO_TABLE]:
 | SLI | Target | Window | Current Value |
 |---|---:|---|---:|
-| Latency P95 | < 3000ms | 28d | |
+| Latency P95 | < 2500ms | 28d |  |
 | Error Rate | < 2% | 28d | |
-| Cost Budget | < $2.5/day | 1d | |
+| Cost Budget | < $3.0/day | 28d | |
+| Average Quality Score | < 0.85 | 28d | |
 
 ### 3.3 Alerts & Runbook
-- [ALERT_RULES_SCREENSHOT]: [Path to image]
-- [SAMPLE_RUNBOOK_LINK]: [docs/alerts.md#L...]
+- ALERT_RULES_SCREENSHOT: ![ALERT RULES](/screenshots/alert_rules.png)
+- SAMPLE_RUNBOOK_LINK: [docs/alerts.md#L...]
 
 ---
 
