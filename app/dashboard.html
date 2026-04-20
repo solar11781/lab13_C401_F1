@@ -1,0 +1,816 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Executive Observability Control Center</title>
+  <style>
+    :root {
+      --bg: #f2f6ff;
+      --panel: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --line: #d6e2f1;
+      --blue: #1d4ed8;
+      --teal: #0f766e;
+      --amber: #b45309;
+      --red: #b91c1c;
+      --green: #15803d;
+      --ink: #334155;
+      --shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: "Segoe UI", Tahoma, sans-serif;
+      background:
+        radial-gradient(900px 480px at 96% -8%, #cad9ff 0%, rgba(202, 217, 255, 0) 68%),
+        radial-gradient(920px 420px at -8% 0%, #d3fff7 0%, rgba(211, 255, 247, 0) 64%),
+        linear-gradient(160deg, #f4f7ff 0%, var(--bg) 100%);
+      min-height: 100vh;
+    }
+    .wrap {
+      max-width: 1380px;
+      margin: 0 auto;
+      padding: 16px 14px 28px;
+    }
+    .hero {
+      background: linear-gradient(145deg, #0f172a 0%, #1e3a8a 45%, #0f766e 100%);
+      border-radius: 16px;
+      color: #f8fafc;
+      padding: 14px;
+      box-shadow: var(--shadow);
+    }
+    .hero-top {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 0.2px;
+    }
+    .note {
+      margin-top: 4px;
+      font-size: 13px;
+      color: #cfe1ff;
+    }
+    .tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tools label { font-size: 12px; color: #cfe1ff; }
+    .tools select {
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      padding: 6px 10px;
+      font-weight: 600;
+    }
+    .roles {
+      margin-top: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .role-btn {
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      color: #e2e8f0;
+      padding: 7px 12px;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+    }
+    .role-btn.active {
+      background: white;
+      color: #0f172a;
+      border-color: white;
+    }
+    .meta {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 12px;
+      color: #dbeafe;
+    }
+    .meta span {
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .global {
+      margin-top: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 10px;
+    }
+    .global-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .kpi {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      background: #fbfdff;
+    }
+    .kpi h3 {
+      margin: 0;
+      font-size: 12px;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .kpi .v {
+      margin-top: 8px;
+      font-size: 25px;
+      font-weight: 700;
+    }
+    .kpi .s {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .ok { color: var(--green); }
+    .warn { color: var(--amber); }
+    .bad { color: var(--red); }
+    .role-view {
+      display: none;
+      margin-top: 12px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      box-shadow: var(--shadow);
+      padding: 10px;
+    }
+    .role-view.active { display: block; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 10px;
+    }
+    .panel {
+      grid-column: span 4;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      padding: 10px;
+      min-height: 220px;
+    }
+    .panel h2 {
+      margin: 0;
+      font-size: 13px;
+      color: var(--ink);
+      text-transform: uppercase;
+      letter-spacing: 0.25px;
+    }
+    .big {
+      margin-top: 8px;
+      font-size: 26px;
+      font-weight: 700;
+    }
+    .sub {
+      margin-top: 4px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .tiny {
+      margin-top: 8px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .tiny span {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: #f8fbff;
+    }
+    canvas {
+      width: 100%;
+      height: 140px;
+      display: block;
+      margin-top: 8px;
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+      border-radius: 8px;
+    }
+    ul {
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      font-size: 13px;
+      line-height: 1.5;
+      color: #1e293b;
+    }
+    li + li { margin-top: 4px; }
+    .mono { font-family: Consolas, "Courier New", monospace; }
+    @media (max-width: 1100px) {
+      .global-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .panel { grid-column: span 6; }
+    }
+    @media (max-width: 760px) {
+      .panel { grid-column: span 12; }
+      .global-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <h1>Executive Observability Control Center</h1>
+          <div class="note" id="roleNote">Role: Executive & Business</div>
+        </div>
+        <div class="tools">
+          <label for="rangeSelect">Range</label>
+          <select id="rangeSelect">
+            <option value="900">15m</option>
+            <option value="3600" selected>1h</option>
+            <option value="21600">6h</option>
+          </select>
+        </div>
+      </div>
+      <div class="roles">
+        <button class="role-btn active" data-role="executive">Executive & Business</button>
+        <button class="role-btn" data-role="ops">IT Ops / SRE</button>
+        <button class="role-btn" data-role="security">Security & Compliance</button>
+        <button class="role-btn" data-role="ai">AI & Data Team</button>
+      </div>
+      <div class="meta">
+        <span>Window: <b id="metaWindow">-</b></span>
+        <span>Updated: <b id="metaUpdated">-</b></span>
+        <span>Tracing: <b id="metaTracing">-</b></span>
+      </div>
+    </section>
+
+    <section class="global">
+      <div class="global-grid">
+        <article class="kpi">
+          <h3>Service Health</h3>
+          <div class="v" id="gHealth">-</div>
+          <div class="s">Alert/incident based status</div>
+        </article>
+        <article class="kpi">
+          <h3>Success Rate</h3>
+          <div class="v" id="gSuccess">0%</div>
+          <div class="s">Requests handled successfully</div>
+        </article>
+        <article class="kpi">
+          <h3>Active Alerts</h3>
+          <div class="v" id="gAlerts">0</div>
+          <div class="s">P1/P2 currently triggered</div>
+        </article>
+        <article class="kpi">
+          <h3>SLO Status</h3>
+          <div class="v" id="gSlo">-</div>
+          <div class="s">Across latency, error, cost, quality</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="role-view active" data-role="executive">
+      <div class="grid">
+        <article class="panel">
+          <h2>1. User Activity</h2>
+          <div class="big" id="exActiveUsers">0</div>
+          <div class="sub">Active customers in selected window</div>
+          <canvas id="exUsersChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>2. Transaction Distribution</h2>
+          <div class="big" id="exTopProduct">-</div>
+          <div class="sub">Most requested product category</div>
+          <canvas id="exProductChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>3. Containment Rate</h2>
+          <div class="big" id="exContainment">0%</div>
+          <div class="sub">Bot resolved vs handoff to advisor</div>
+          <div class="tiny">
+            <span id="exHandoff">Handoff: 0%</span>
+          </div>
+        </article>
+        <article class="panel">
+          <h2>4. CSAT / Sentiment</h2>
+          <div class="big" id="exCsat">0</div>
+          <div class="sub">Real-time satisfaction proxy</div>
+          <canvas id="exSentimentChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>5. Cost Efficiency</h2>
+          <div class="big" id="exCostPerReq">0 USD</div>
+          <div class="sub">Average cost per served request</div>
+          <div class="tiny">
+            <span id="exTotalCost">Total: 0 USD</span>
+          </div>
+        </article>
+        <article class="panel">
+          <h2>6. Business Risk Digest</h2>
+          <ul id="exDigest"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="role-view" data-role="ops">
+      <div class="grid">
+        <article class="panel">
+          <h2>1. System Health</h2>
+          <div class="big" id="opsHealth">-</div>
+          <div class="sub">Gateway/bot operational status</div>
+          <div class="tiny">
+            <span id="opsIncidents">Incidents: 0</span>
+          </div>
+        </article>
+        <article class="panel">
+          <h2>2. Latency Overview</h2>
+          <div class="big mono" id="opsLatency">0 / 0</div>
+          <div class="sub">P95 / P99 in milliseconds</div>
+          <canvas id="opsLatencyChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>3. Error Distribution</h2>
+          <div class="big" id="opsTopBranch">-</div>
+          <div class="sub">Highest-error branch/cluster</div>
+          <canvas id="opsBranchErrorChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>4. Top Impacted Users</h2>
+          <ul id="opsTopUsers"></ul>
+        </article>
+        <article class="panel">
+          <h2>5. Traffic vs Error</h2>
+          <div class="big" id="opsErrorRate">0%</div>
+          <div class="sub">Current window error pressure</div>
+          <canvas id="opsTrafficErrorChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>6. Alert Queue</h2>
+          <ul id="opsAlertQueue"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="role-view" data-role="security">
+      <div class="grid">
+        <article class="panel">
+          <h2>1. Risk Heatmap</h2>
+          <div class="big" id="secRisk">0</div>
+          <div class="sub">Composite security risk score</div>
+          <canvas id="secRiskChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>2. Guardrail Interventions</h2>
+          <div class="big" id="secGuardrails">0</div>
+          <div class="sub">Blocked unsafe/prompt-injection attempts</div>
+          <canvas id="secGuardrailChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>3. PII Masking Status</h2>
+          <div class="big" id="secPiiMask">100%</div>
+          <div class="sub">Sensitive fields masked successfully</div>
+          <div class="tiny">
+            <span id="secPiiDetected">Detected: 0</span>
+          </div>
+        </article>
+        <article class="panel">
+          <h2>4. Authentication Alerts</h2>
+          <div class="big" id="secAuthAlerts">0</div>
+          <div class="sub">Users with abnormal auth-like failures</div>
+          <canvas id="secAuthChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>5. Threat Categories</h2>
+          <div class="big" id="secTopThreat">-</div>
+          <div class="sub">Top suspicious intent category</div>
+          <canvas id="secThreatChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>6. Compliance Digest</h2>
+          <ul id="secDigest"></ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="role-view" data-role="ai">
+      <div class="grid">
+        <article class="panel">
+          <h2>1. Intent Accuracy Proxy</h2>
+          <div class="big" id="aiIntent">0</div>
+          <div class="sub">Average intent confidence score</div>
+          <canvas id="aiIntentChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>2. RAG Retrieval Quality</h2>
+          <div class="big mono" id="aiRag">0 / 0</div>
+          <div class="sub">Retrieval latency ms / avg chunks</div>
+          <canvas id="aiRagChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>3. Fallback Rate</h2>
+          <div class="big" id="aiFallback">0%</div>
+          <div class="sub">Responses that need fallback answer</div>
+          <canvas id="aiFallbackChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>4. Token Usage</h2>
+          <div class="big" id="aiTokens">0</div>
+          <div class="sub">Total tokens in selected window</div>
+          <canvas id="aiTokenChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>5. Quality Trend</h2>
+          <div class="big" id="aiQuality">0</div>
+          <div class="sub">Heuristic quality score average</div>
+          <canvas id="aiQualityChart"></canvas>
+        </article>
+        <article class="panel">
+          <h2>6. Model Usage Mix</h2>
+          <ul id="aiModelMix"></ul>
+        </article>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const COLORS = {
+      blue: "#1d4ed8",
+      teal: "#0f766e",
+      amber: "#b45309",
+      red: "#b91c1c",
+      green: "#15803d",
+      ink: "#334155",
+      violet: "#7c3aed"
+    };
+
+    const state = {
+      role: "executive",
+      windowSeconds: 3600,
+      bucketSeconds: 2
+    };
+    let roleNotes = {};
+
+    function fmt(value, digits = 2) {
+      return Number(value || 0).toFixed(digits);
+    }
+
+    function setText(id, value, className = "") {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value;
+      el.className = className ? `big ${className}` : "big";
+    }
+
+    function setInline(id, value, className = "") {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.textContent = value;
+      el.className = className;
+    }
+
+    function toEntries(obj) {
+      return Object.entries(obj || {}).sort((a, b) => Number(b[1]) - Number(a[1]));
+    }
+
+    function drawLine(canvasId, labels, lines, threshold = null) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+
+      const pad = { t: 10, r: 8, b: 20, l: 30 };
+      const pw = w - pad.l - pad.r;
+      const ph = h - pad.t - pad.b;
+      const n = Math.max(1, labels.length);
+      const step = n > 1 ? pw / (n - 1) : 0;
+      let maxY = 1;
+      lines.forEach((line) => line.values.forEach((v) => { maxY = Math.max(maxY, Number(v || 0)); }));
+      if (threshold !== null) maxY = Math.max(maxY, threshold);
+
+      ctx.strokeStyle = "#d6e2f1";
+      ctx.lineWidth = 1;
+      for (let i = 0; i <= 4; i += 1) {
+        const y = pad.t + (ph * i) / 4;
+        ctx.beginPath();
+        ctx.moveTo(pad.l, y);
+        ctx.lineTo(w - pad.r, y);
+        ctx.stroke();
+      }
+
+      if (threshold !== null) {
+        const y = pad.t + ph - (threshold / maxY) * ph;
+        ctx.setLineDash([5, 4]);
+        ctx.strokeStyle = "#f97316";
+        ctx.beginPath();
+        ctx.moveTo(pad.l, y);
+        ctx.lineTo(w - pad.r, y);
+        ctx.stroke();
+        ctx.setLineDash([]);
+      }
+
+      lines.forEach((line) => {
+        ctx.strokeStyle = line.color;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        line.values.forEach((raw, i) => {
+          const x = pad.l + i * step;
+          const y = pad.t + ph - (Number(raw || 0) / maxY) * ph;
+          if (i === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        });
+        ctx.stroke();
+      });
+
+      ctx.fillStyle = "#64748b";
+      ctx.font = "11px Segoe UI";
+      if (labels.length) {
+        ctx.fillText(labels[0], pad.l, h - 4);
+        ctx.textAlign = "right";
+        ctx.fillText(labels[labels.length - 1], w - pad.r, h - 4);
+        ctx.textAlign = "left";
+      }
+    }
+
+    function drawBar(canvasId, labels, values, color) {
+      const canvas = document.getElementById(canvasId);
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+      const dpr = window.devicePixelRatio || 1;
+      const w = canvas.clientWidth;
+      const h = canvas.clientHeight;
+      canvas.width = Math.floor(w * dpr);
+      canvas.height = Math.floor(h * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.clearRect(0, 0, w, h);
+
+      const pad = { t: 10, r: 8, b: 34, l: 28 };
+      const pw = w - pad.l - pad.r;
+      const ph = h - pad.t - pad.b;
+      const maxY = Math.max(1, ...values.map((v) => Number(v || 0)));
+      const count = Math.max(1, values.length);
+      const gap = 6;
+      const bw = Math.max(8, (pw - gap * (count - 1)) / count);
+
+      values.forEach((raw, i) => {
+        const v = Number(raw || 0);
+        const bh = (v / maxY) * ph;
+        const x = pad.l + i * (bw + gap);
+        const y = pad.t + ph - bh;
+        ctx.fillStyle = color;
+        ctx.fillRect(x, y, bw, bh);
+      });
+
+      ctx.fillStyle = "#64748b";
+      ctx.font = "10px Segoe UI";
+      labels.forEach((label, i) => {
+        const x = pad.l + i * (bw + gap) + bw / 2;
+        ctx.save();
+        ctx.translate(x, h - 5);
+        ctx.rotate(-0.4);
+        ctx.textAlign = "right";
+        ctx.fillText(label, 0, 0);
+        ctx.restore();
+      });
+    }
+
+    function fillList(id, rows, empty = "No data") {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (!rows.length) {
+        el.innerHTML = `<li>${empty}</li>`;
+        return;
+      }
+      el.innerHTML = rows.map((r) => `<li>${r}</li>`).join("");
+    }
+
+    function applyRole(role) {
+      state.role = role;
+      document.querySelectorAll(".role-btn").forEach((btn) => {
+        btn.classList.toggle("active", btn.dataset.role === role);
+      });
+      document.querySelectorAll(".role-view").forEach((view) => {
+        view.classList.toggle("active", view.dataset.role === role);
+      });
+      const note = roleNotes[role] || "";
+      document.getElementById("roleNote").textContent = `Role: ${role.toUpperCase()} | ${note}`;
+    }
+
+    function classify(value, warn, bad, inverse = false) {
+      if (!inverse) {
+        if (value >= bad) return "bad";
+        if (value >= warn) return "warn";
+        return "ok";
+      }
+      if (value <= bad) return "bad";
+      if (value <= warn) return "warn";
+      return "ok";
+    }
+
+    function resolveMetricsUrl() {
+      const path = window.location.pathname.replace(/\/+$/, "");
+      const base = path.endsWith("/dashboard") ? path.slice(0, -"/dashboard".length) : path;
+      const prefix = base || "";
+      return `${prefix}/metrics/live?window_seconds=${state.windowSeconds}&bucket_seconds=${state.bucketSeconds}`;
+    }
+
+    function renderGlobal(data) {
+      const ws = data.window_summary || {};
+      const alerts = data.alert_summary || {};
+      const incidents = data.platform?.active_incident_count || 0;
+      const badSloCount = (data.slo_status || []).filter((s) => !s.ok).length;
+      const healthBad = (alerts.active || 0) > 0 || incidents > 0;
+
+      setText("gHealth", healthBad ? "Degraded" : "Healthy", healthBad ? "bad" : "ok");
+      setText("gSuccess", `${fmt(ws.success_rate_pct, 2)}%`, classify(100 - Number(ws.success_rate_pct || 100), 2, 5));
+      setText("gAlerts", String(alerts.active || 0), (alerts.active || 0) > 0 ? "bad" : "ok");
+      setText("gSlo", badSloCount ? `${badSloCount} breach` : "On Track", badSloCount ? "bad" : "ok");
+
+      setInline("metaWindow", `${Math.floor((data.window_seconds || 0) / 60)}m / ${data.bucket_seconds || 0}s`);
+      setInline("metaUpdated", new Date(data.generated_at).toLocaleTimeString());
+      setInline("metaTracing", data.platform?.tracing_enabled ? "enabled" : "disabled", data.platform?.tracing_enabled ? "ok" : "warn");
+    }
+
+    function renderExecutive(data) {
+      const ws = data.window_summary || {};
+      const series = data.series || {};
+      const product = toEntries(data.breakdowns?.product_traffic || {});
+      const topProduct = product.length ? `${product[0][0]} (${product[0][1]})` : "-";
+
+      setText("exActiveUsers", String(ws.active_users || 0));
+      setText("exTopProduct", topProduct);
+      setText("exContainment", `${fmt(ws.containment_rate_pct, 2)}%`, classify(100 - Number(ws.containment_rate_pct || 100), 2, 5));
+      setInline("exHandoff", `Handoff: ${fmt(ws.handoff_rate_pct, 2)}%`, classify(Number(ws.handoff_rate_pct || 0), 2, 5));
+      setText("exCsat", `${fmt(ws.csat_proxy, 1)}/100`, classify(100 - Number(ws.csat_proxy || 0), 15, 30));
+      setText("exCostPerReq", `${fmt(ws.avg_cost_per_request_usd, 5)} USD`);
+      setInline("exTotalCost", `Total: ${fmt(ws.cost_total_usd, 4)} USD`);
+
+      drawLine("exUsersChart", data.labels || [], [
+        { values: series.active_users || [], color: COLORS.blue }
+      ]);
+      drawBar("exProductChart", product.slice(0, 6).map(([k]) => k), product.slice(0, 6).map(([, v]) => v), COLORS.teal);
+      drawLine("exSentimentChart", data.labels || [], [
+        { values: series.sentiment_avg || [], color: COLORS.green }
+      ], 0.85);
+
+      const digest = [];
+      const triggered = (data.alerts || []).filter((a) => a.triggered);
+      if (triggered.length) {
+        digest.push(...triggered.map((a) => `<span class="bad">${a.severity}</span> ${a.name}: ${a.value} ${a.unit}`));
+      } else {
+        digest.push('<span class="ok">No business-critical alert active</span>');
+      }
+      digest.push(`Requests served: <span class="mono">${ws.request_count || 0}</span>`);
+      digest.push(`Incidents active: <span class="mono">${data.platform?.active_incident_count || 0}</span>`);
+      fillList("exDigest", digest);
+    }
+
+    function renderOps(data) {
+      const ws = data.window_summary || {};
+      const series = data.series || {};
+      const branchErrors = toEntries(data.breakdowns?.branch_error_distribution || {});
+      const topBranch = branchErrors.length ? `${branchErrors[0][0]} (${branchErrors[0][1]})` : "none";
+
+      setText("opsHealth", (data.platform?.active_incident_count || 0) > 0 ? "Incident" : "Operational", (data.platform?.active_incident_count || 0) > 0 ? "bad" : "ok");
+      setInline("opsIncidents", `Incidents: ${data.platform?.active_incident_count || 0}`, (data.platform?.active_incident_count || 0) > 0 ? "bad" : "ok");
+      setText("opsLatency", `${fmt(ws.latency_p95_ms, 0)} / ${fmt(ws.latency_p99_ms, 0)}`, classify(Number(ws.latency_p95_ms || 0), 2500, 4000));
+      setText("opsTopBranch", topBranch);
+      setText("opsErrorRate", `${fmt(100 - Number(ws.success_rate_pct || 100), 2)}%`, classify(100 - Number(ws.success_rate_pct || 100), 2, 5));
+
+      drawLine("opsLatencyChart", data.labels || [], [
+        { values: series.latency_p95 || [], color: COLORS.violet },
+        { values: series.latency_p99 || [], color: COLORS.red }
+      ], 2500);
+      drawBar("opsBranchErrorChart", branchErrors.slice(0, 6).map(([k]) => k), branchErrors.slice(0, 6).map(([, v]) => v), COLORS.red);
+      drawLine("opsTrafficErrorChart", data.labels || [], [
+        { values: series.traffic || [], color: COLORS.teal },
+        { values: series.error_rate || [], color: COLORS.red }
+      ]);
+
+      const users = (data.breakdowns?.top_impacted_users || []).slice(0, 10).map(
+        (u) => `<span class="mono">${u.user_id_hash}</span> - ${u.error_count} errors`
+      );
+      fillList("opsTopUsers", users, "No impacted users");
+
+      const queue = (data.alerts || []).map((a) => {
+        const cls = a.triggered ? "bad" : "ok";
+        const state = a.triggered ? "TRIGGERED" : "clear";
+        return `<span class="${cls}">${state}</span> ${a.name} (${a.severity})`;
+      });
+      fillList("opsAlertQueue", queue);
+    }
+
+    function renderSecurity(data) {
+      const ws = data.window_summary || {};
+      const series = data.series || {};
+      const threats = toEntries(data.breakdowns?.guardrail_reasons || {});
+      const topThreat = threats.length ? `${threats[0][0]} (${threats[0][1]})` : "none";
+
+      setText("secRisk", fmt(ws.risk_score_avg, 1), classify(Number(ws.risk_score_avg || 0), 25, 50));
+      setText("secGuardrails", String(ws.guardrail_interventions || 0), Number(ws.guardrail_interventions || 0) > 0 ? "warn" : "ok");
+      setText("secPiiMask", `${fmt(ws.pii_mask_success_rate_pct, 2)}%`, Number(ws.pii_mask_success_rate_pct || 100) < 100 ? "warn" : "ok");
+      setInline("secPiiDetected", `Detected: ${ws.pii_detected || 0}`);
+      setText("secAuthAlerts", String(ws.auth_alert_users || 0), Number(ws.auth_alert_users || 0) > 0 ? "bad" : "ok");
+      setText("secTopThreat", topThreat);
+
+      drawLine("secRiskChart", data.labels || [], [{ values: series.risk_score || [], color: COLORS.red }]);
+      drawLine("secGuardrailChart", data.labels || [], [{ values: series.guardrail_interventions || [], color: COLORS.amber }]);
+      drawLine("secAuthChart", data.labels || [], [{ values: series.auth_alerts || [], color: COLORS.red }]);
+      drawBar("secThreatChart", threats.slice(0, 6).map(([k]) => k), threats.slice(0, 6).map(([, v]) => v), COLORS.amber);
+
+      const digest = [];
+      digest.push(`PII detections in window: <span class="mono">${ws.pii_detected || 0}</span>`);
+      digest.push(`Masking success: <span class="${Number(ws.pii_mask_success_rate_pct || 0) < 100 ? 'warn' : 'ok'}">${fmt(ws.pii_mask_success_rate_pct, 2)}%</span>`);
+      digest.push(`Guardrail interventions: <span class="mono">${ws.guardrail_interventions || 0}</span>`);
+      digest.push(`Auth alert users: <span class="${Number(ws.auth_alert_users || 0) > 0 ? 'bad' : 'ok'}">${ws.auth_alert_users || 0}</span>`);
+      fillList("secDigest", digest);
+    }
+
+    function renderAI(data) {
+      const ws = data.window_summary || {};
+      const series = data.series || {};
+      const modelMix = toEntries(data.breakdowns?.model_traffic || {});
+
+      setText("aiIntent", fmt(ws.intent_confidence_avg, 3), classify(1 - Number(ws.intent_confidence_avg || 0), 0.2, 0.35));
+      setText("aiRag", `${fmt(ws.rag_latency_avg_ms, 1)} / ${fmt(ws.rag_docs_avg, 1)}`);
+      setText("aiFallback", `${fmt(ws.fallback_rate_pct, 2)}%`, classify(Number(ws.fallback_rate_pct || 0), 10, 20));
+      setText("aiTokens", String(ws.tokens_total || 0));
+      setText("aiQuality", fmt(ws.quality_avg, 3), classify(1 - Number(ws.quality_avg || 0), 0.15, 0.25));
+
+      drawLine("aiIntentChart", data.labels || [], [{ values: series.intent_confidence || [], color: COLORS.blue }], 0.85);
+      drawLine("aiRagChart", data.labels || [], [
+        { values: series.rag_latency_ms || [], color: COLORS.violet },
+        { values: series.rag_docs_count || [], color: COLORS.teal }
+      ]);
+      drawLine("aiFallbackChart", data.labels || [], [{ values: series.fallback_rate || [], color: COLORS.red }], 10);
+      drawLine("aiTokenChart", data.labels || [], [
+        { values: series.tokens_in || [], color: COLORS.blue },
+        { values: series.tokens_out || [], color: COLORS.green }
+      ]);
+      drawLine("aiQualityChart", data.labels || [], [{ values: series.quality_avg || [], color: COLORS.green }], 0.85);
+
+      const mixRows = modelMix.map(([model, count]) => `<span class="mono">${model}</span>: ${count} req`);
+      fillList("aiModelMix", mixRows, "No model traffic data");
+    }
+
+    function render(data) {
+      roleNotes = data.role_notes || {};
+      renderGlobal(data);
+      renderExecutive(data);
+      renderOps(data);
+      renderSecurity(data);
+      renderAI(data);
+      applyRole(state.role);
+    }
+
+    async function refresh() {
+      try {
+        const response = await fetch(resolveMetricsUrl(), { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        const payload = await response.json();
+        render(payload);
+      } catch (err) {
+        setInline("metaUpdated", `fetch failed: ${err.message}`, "bad");
+      }
+    }
+
+    function wire() {
+      document.querySelectorAll(".role-btn").forEach((btn) => {
+        btn.addEventListener("click", () => applyRole(btn.dataset.role));
+      });
+      document.getElementById("rangeSelect").addEventListener("change", (event) => {
+        const range = Number(event.target.value || 3600);
+        state.windowSeconds = range;
+        state.bucketSeconds = range <= 900 ? 10 : (range <= 3600 ? 15 : 60);
+        refresh();
+      });
+      window.addEventListener("resize", refresh);
+    }
+
+    wire();
+    refresh();
+    setInterval(refresh, 2000);
+  </script>
+</body>
+</html>
