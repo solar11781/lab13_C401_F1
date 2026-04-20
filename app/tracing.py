@@ -10,7 +10,7 @@ except Exception:  # pragma: no cover
         def decorator(func):
             return func
         return decorator
-
+# Dummy context to avoid import errors when Langfuse keys are not set. This allows the app to run without tracing if the environment variables are missing.
     class _DummySpan:
         def __enter__(self):
             return self
@@ -21,7 +21,7 @@ except Exception:  # pragma: no cover
         def update(self, **kwargs):
             return None
 
-
+# Dummy context to avoid import errors when Langfuse keys are not set. This allows the app to run without tracing if the environment variables are missing.
     class _DummyContext:
         def update_current_trace(self, **kwargs: Any) -> None:
             return None
@@ -34,6 +34,6 @@ except Exception:  # pragma: no cover
 
     langfuse_context = _DummyContext()
 
-
+#span name can be used to group related operations together in the tracing system. For example, you might use span names like "llm_generation", "vector_retrieval", or "api_request" to categorize different types of operations in your application. This helps in visualizing and analyzing the traces more effectively in the Langfuse dashboard.
 def tracing_enabled() -> bool:
     return bool(os.getenv("LANGFUSE_PUBLIC_KEY") and os.getenv("LANGFUSE_SECRET_KEY"))
