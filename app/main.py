@@ -44,8 +44,15 @@ async def metrics() -> dict:
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: Request, body: ChatRequest) -> ChatResponse:
-    # TODO: Enrich logs with request context (user_id_hash, session_id, feature, model, env)
-    # bind_contextvars(...)
+    # 1. Enrich logs with request context for Member A
+    env_name = os.getenv("APP_ENV", "dev")
+    bind_contextvars(
+        user_id_hash=hash_user_id(body.user_id),
+        session_id=body.session_id,
+        feature=body.feature,
+        model=agent.model,
+        env=env_name
+    )
     
     log.info(
         "request_received",
@@ -53,12 +60,15 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
         payload={"message_preview": summarize_text(body.message)},
     )
     try:
+        # 2. Pass the correlation_id into the agent for tracing
         result = agent.run(
             user_id=body.user_id,
             feature=body.feature,
             session_id=body.session_id,
             message=body.message,
+            correlation_id=request.state.correlation_id # Linked here!
         )
+        
         log.info(
             "response_sent",
             service="api",
@@ -90,6 +100,7 @@ async def chat(request: Request, body: ChatRequest) -> ChatResponse:
 
 
 @app.post("/incidents/{name}/enable")
+# ... (Keep existing enable_incident logic)
 async def enable_incident(name: str) -> JSONResponse:
     try:
         enable(name)
@@ -100,6 +111,7 @@ async def enable_incident(name: str) -> JSONResponse:
 
 
 @app.post("/incidents/{name}/disable")
+# ... (Keep existing disable_incident logic)
 async def disable_incident(name: str) -> JSONResponse:
     try:
         disable(name)

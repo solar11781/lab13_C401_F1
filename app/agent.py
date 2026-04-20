@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 import time
 from dataclasses import dataclass
 
@@ -25,23 +26,45 @@ class LabAgent:
         self.model = model
         self.llm = FakeLLM(model=model)
 
-    @observe()
-    def run(self, user_id: str, feature: str, session_id: str, message: str) -> AgentResult:
+    # Added a descriptive name to the trace decorator
+    @observe(name="agent_reasoning_chain")
+    def run(self, user_id: str, feature: str, session_id: str, message: str, correlation_id: str = None) -> AgentResult:
         started = time.perf_counter()
-        docs = retrieve(message)
+        
+        # 1. Force Trace ID to match Correlation ID
+        langfuse_context.update_current_trace(
+            id=correlation_id,
+            user_id=hash_user_id(user_id),
+            session_id=session_id,
+            tags=["lab-day-13", feature, self.model, os.getenv("APP_ENV", "dev")],
+        )
+        
+        # 2. Nested Span for RAG Retrieval
+        with langfuse_context.span(name="knowledge_retrieval") as rag_span:
+            docs = retrieve(message)
+            rag_span.update(metadata={"doc_count": len(docs)})
+
         prompt = f"Feature={feature}\nDocs={docs}\nQuestion={message}"
-        response = self.llm.generate(prompt)
+        
+        # 3. Nested Span for LLM Generation
+        with langfuse_context.span(name="llm_generation") as llm_span:
+            response = self.llm.generate(prompt)
+            llm_span.update(
+                metadata={"model_used": self.model},
+                usage={"input": response.usage.input_tokens, "output": response.usage.output_tokens}
+            )
+
         quality_score = self._heuristic_quality(message, response.text, docs)
         latency_ms = int((time.perf_counter() - started) * 1000)
         cost_usd = self._estimate_cost(response.usage.input_tokens, response.usage.output_tokens)
 
-        langfuse_context.update_current_trace(
-            user_id=hash_user_id(user_id),
-            session_id=session_id,
-            tags=["lab", feature, self.model],
-        )
+        # 4. Finalize the main observation metrics
         langfuse_context.update_current_observation(
-            metadata={"doc_count": len(docs), "query_preview": summarize_text(message)},
+            metadata={
+                "doc_count": len(docs), 
+                "query_preview": summarize_text(message),
+                "quality_score": quality_score
+            },
             usage_details={"input": response.usage.input_tokens, "output": response.usage.output_tokens},
         )
 
@@ -78,3 +101,4 @@ class LabAgent:
         if "[REDACTED" in answer:
             score -= 0.2
         return round(max(0.0, min(1.0, score)), 2)
+    

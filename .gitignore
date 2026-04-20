@@ -1,9 +1,24 @@
+# Environments
 .venv/
+venv/
+ENV/
+env/
+bin/
+lib/
+include/
+
+# Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
+
+# OS files
 .DS_Store
+
+# Data & Logs
 data/logs.jsonl
 data/audit.jsonl
 .env
-.pytest_cache/
+
+# Others
 .antigravity/
